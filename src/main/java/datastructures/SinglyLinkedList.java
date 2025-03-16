@@ -77,7 +77,7 @@ public class SinglyLinkedList<T> {
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToFront(T data) {
-
+      
         if (data == null) {
             throw new IllegalArgumentException("Cannot add null data to list.");
         }
