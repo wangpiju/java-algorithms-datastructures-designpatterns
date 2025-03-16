@@ -9,10 +9,6 @@ public class SinglyLinkedList<T> {
     /**
      * Node class used for implementing the SinglyLinkedList.
      *
-     * DO NOT MODIFY THIS FILE!!
-     *
-     * @author CS 1332 TAs
-     * @version 1.0
      */
     public static class SinglyLinkedListNode<T> {
 
@@ -68,16 +64,9 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    /*
-     * Do not add new instance variables or modify existing ones.
-     */
     private SinglyLinkedListNode<T> head;
     private SinglyLinkedListNode<T> tail;
     private int size;
-
-    /*
-     * Do not add a constructor.
-     */
 
     /**
      * Adds the element to the front of the list.
@@ -88,15 +77,19 @@ public class SinglyLinkedList<T> {
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToFront(T data) {
+      
         if (data == null) {
             throw new IllegalArgumentException("Cannot add null data to list.");
         }
+
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
         newNode.setNext(head);
         head = newNode;
+
         if (size == 0) {
             tail = newNode;
         }
+
         size++;
     }
 
@@ -109,10 +102,13 @@ public class SinglyLinkedList<T> {
      * @throws java.lang.IllegalArgumentException if data is null
      */
     public void addToBack(T data) {
+
         if (data == null) {
             throw new IllegalArgumentException("Cannot add null data to list.");
         }
+
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<>(data);
+
         if (size == 0) {
             head = newNode;
             tail = newNode;
@@ -120,6 +116,7 @@ public class SinglyLinkedList<T> {
             tail.setNext(newNode);
             tail = newNode;
         }
+
         size++;
     }
 
@@ -132,15 +129,19 @@ public class SinglyLinkedList<T> {
      * @throws java.util.NoSuchElementException if the list is empty
      */
     public T removeFromFront() {
+
         if (size == 0) {
             throw new NoSuchElementException("Cannot remove from an empty list.");
         }
+
         T removedData = head.getData();
         head = head.getNext();
         size--;
+
         if (size == 0) {
             tail = null;
         }
+
         return removedData;
     }
 
@@ -153,9 +154,11 @@ public class SinglyLinkedList<T> {
      * @throws java.util.NoSuchElementException if the list is empty
      */
     public T removeFromBack() {
+
         if (size == 0) {
             throw new NoSuchElementException("Cannot remove from an empty list.");
         }
+
         if (size == 1) {
             T removedData = head.getData();
             head = null;
@@ -165,9 +168,11 @@ public class SinglyLinkedList<T> {
         }
 
         SinglyLinkedListNode<T> current = head;
+
         while (current.getNext() != tail) {
             current = current.getNext();
         }
+
         T removedData = tail.getData();
         current.setNext(null);
         tail = current;
