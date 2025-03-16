@@ -62,6 +62,7 @@ public class FindPeakElement {
         test(new int[] { 1 }); // Expected: 0
         test(new int[] { 1, 2 }); // Expected: 1
         test(new int[] { 2, 1 }); // Expected: 0
+        test(new int[] { 1, 1, 1 }); // Expected: -1
     }
 
     private static void test(int[] nums) {
