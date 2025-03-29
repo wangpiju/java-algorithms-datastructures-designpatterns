@@ -49,3 +49,21 @@ public class InsertionSort {
         System.out.println("After sorting:  " + toString(test3));
     }
 }
+
+/*
+ * Time Complexity Analysis:
+ * - Best Case: O(n) when array is already sorted
+ * - Average Case: O(n^2) when array is randomly ordered
+ * - Worst Case: O(n^2) when array is reverse sorted
+ * 
+ * Space Complexity Analysis:
+ * - O(1) as it sorts in-place, only using a constant amount of extra space
+ * - Only requires one additional variable (current) for swapping
+ * 
+ * Characteristics:
+ * - Stable sorting algorithm
+ * - In-place algorithm
+ * - Adaptive: performance improves if array is partially sorted
+ * - Efficient for small data sets
+ * - More efficient in practice than bubble sort and selection sort
+ */
