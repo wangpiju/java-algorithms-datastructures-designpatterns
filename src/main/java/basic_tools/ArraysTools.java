@@ -1,6 +1,7 @@
 package basic_tools;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ArraysTools {
     public static void main(String[] args) {
@@ -22,14 +23,14 @@ public class ArraysTools {
 
         // Test Arrays.copyOf()
         int[] original = { 1, 2, 3, 4, 5 };
-        int[] copied = Arrays.copyOf(original, 7); // Copies and extends length to 7
+        int[] copied = Arrays.copyOf(original, 2); // Copies and extends length to 7
         System.out.println("Testing copyOf():");
         System.out.println("Original array: " + Arrays.toString(original));
         System.out.println("Copied array: " + Arrays.toString(copied)); // [1, 2, 3, 4, 5, 0, 0]
         System.out.println();
 
         // Test Arrays.copyOfRange()
-        int[] rangeArray = Arrays.copyOfRange(original, 1, 4); // Copy elements from index 1 to 3
+        int[] rangeArray = Arrays.copyOfRange(original, 0, 3); // Copy elements from index 1 to 3
         System.out.println("Testing copyOfRange():");
         System.out.println("Range copied array: " + Arrays.toString(rangeArray)); // [2, 3, 4]
         System.out.println();
@@ -47,11 +48,24 @@ public class ArraysTools {
         System.out.println();
 
         // Test Arrays.binarySearch()
-        int searchKey = 5;
+        int searchKey = 8;
         int index = Arrays.binarySearch(unsorted, searchKey);
         System.out.println("Testing binarySearch():");
         System.out.println("Found " + searchKey + " at index: " + index); // 2
         System.out.println();
+
+        int data[ ] = new int[10];
+        Random rand = new Random( ); // a pseuo-random number generator
+        rand.setSeed(System.currentTimeMillis( )); // use current time as a seed
+        // fill the data array with pseudo-ra
+        for (int i = 0; i < data.length; i++)
+            data[i] = rand.nextInt(100); // the next pseudo-random number
+        int[ ] orig = Arrays.copyOf(data, data.length);   // make a copy of the data array
+        System.out.println("arrays equal before sort: "+Arrays.equals(data, orig));
+        Arrays.sort(data); // sorting the data array (orig is unchanged)
+        System.out.println("arrays equal after sort: " + Arrays.equals(data, orig));
+        System.out.println("orig = " + Arrays.toString(orig));
+        System.out.println("data = " + Arrays.toString(data));
     }
 }
 
