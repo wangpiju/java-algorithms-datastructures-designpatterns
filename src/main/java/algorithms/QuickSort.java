@@ -78,5 +78,4 @@ public class QuickSort {
 
         return i + 1; // Return the pivot index
     }
-
 }
